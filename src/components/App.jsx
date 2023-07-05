@@ -1,6 +1,6 @@
 import React from 'react';
 import './main.css'
-import { BrowserRouter as Routes, Route, Navigate, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import Home from './Home/Home';
 import Movies from './Movies/Movies';
 const MovieDetails = React.lazy(() => import('./MovieDetails/MovieDetails'));
@@ -28,7 +28,7 @@ function App() {
         <Route path="/movies/:movieId/reviews" element={<React.Suspense fallback={<div>Loading...</div>}><Reviews /></React.Suspense>} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </>
+      </>
   );
 }
 
