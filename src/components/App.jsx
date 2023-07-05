@@ -1,8 +1,9 @@
 import React from 'react';
-import './main.css'
-import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
+import { Routes, Route, Navigate, Link } from 'react-router-dom';
 import Home from './Home/Home';
 import Movies from './Movies/Movies';
+import './main.css'
+
 const MovieDetails = React.lazy(() => import('./MovieDetails/MovieDetails'));
 const Cast = React.lazy(() => import('./Cast/Cast'));
 const Reviews = React.lazy(() => import('./Reviews/Reviews'));
@@ -18,7 +19,7 @@ function Header() {
 
 function App() {
   return (
-    <>
+    <div>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -28,9 +29,8 @@ function App() {
         <Route path="/movies/:movieId/reviews" element={<React.Suspense fallback={<div>Loading...</div>}><Reviews /></React.Suspense>} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      </>
+    </div>
   );
 }
 
 export default App;
-
